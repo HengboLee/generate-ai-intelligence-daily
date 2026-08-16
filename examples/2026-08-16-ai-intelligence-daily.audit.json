@@ -1,0 +1,28 @@
+{
+  "as_of": "2026-08-16T08:00:00+08:00",
+  "input_records": 10,
+  "valid_news_before_dedupe": 7,
+  "news_after_dedupe": 6,
+  "selected_news": 6,
+  "selected_interviews": 3,
+  "duplicate_groups": [
+    [
+      "google-sheets-canvas",
+      "google-sheets-canvas-feed-duplicate"
+    ]
+  ],
+  "excluded": [],
+  "selected_news_ids": [
+    "hf-open-models-summer-2026",
+    "openai-ultrafast-preview",
+    "hf-icml-open-reproductions",
+    "github-agent-apps-sdlc",
+    "google-sheets-canvas",
+    "openai-builders-guide-gpt56"
+  ],
+  "selected_interview_ids": [
+    "interview-agent-evaluation-reproduction",
+    "interview-agent-apps-human-loop",
+    "interview-sheets-canvas-mvp"
+  ]
+}

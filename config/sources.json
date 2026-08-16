@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "report": {
+    "brand": "衡见AI",
+    "timezone": "Asia/Shanghai",
+    "lookback_hours": 72,
+    "tracking_days": 30,
+    "max_news": 10,
+    "max_interview": 3,
+    "max_items_per_source": 2,
+    "max_items_per_topic": 4
+  },
+  "ranking": {
+    "minimum_score": 3.0,
+    "weights": {
+      "freshness": 0.30,
+      "importance": 0.30,
+      "trust": 0.25,
+      "relevance": 0.15
+    }
+  },
+  "dedupe": {
+    "title_similarity_threshold": 0.84,
+    "max_publication_gap_days": 3,
+    "drop_query_parameters": [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "gclid",
+      "fbclid",
+      "ref",
+      "source"
+    ]
+  },
+  "collection": {
+    "timeout_seconds": 20,
+    "max_feed_bytes": 5242880,
+    "user_agent": "HengjianAI-Daily/1.0 (+source-verification)",
+    "max_items_per_feed": 30
+  },
+  "sources": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "tier": 1,
+      "kind": "official",
+      "method": "feed",
+      "url": "https://openai.com/news/",
+      "feed_url": "https://openai.com/news/rss.xml",
+      "topics": ["models", "product", "research", "safety", "company"],
+      "enabled": true
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI",
+      "tier": 1,
+      "kind": "official",
+      "method": "feed",
+      "url": "https://blog.google/technology/ai/",
+      "feed_url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+      "topics": ["models", "product", "research"],
+      "enabled": true
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "tier": 1,
+      "kind": "official",
+      "method": "feed",
+      "url": "https://huggingface.co/blog",
+      "feed_url": "https://huggingface.co/blog/feed.xml",
+      "topics": ["open-source", "models", "research", "tools"],
+      "enabled": true
+    },
+    {
+      "id": "github-ai-ml",
+      "name": "GitHub AI & ML",
+      "tier": 1,
+      "kind": "official",
+      "method": "feed",
+      "url": "https://github.blog/ai-and-ml/",
+      "feed_url": "https://github.blog/ai-and-ml/feed/",
+      "topics": ["developer-tools", "agents", "engineering"],
+      "enabled": true
+    },
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://www.anthropic.com/news",
+      "search_hint": "site:anthropic.com/news after:{start_date} before:{end_date}",
+      "topics": ["models", "product", "research", "safety"],
+      "enabled": true
+    },
+    {
+      "id": "google-deepmind",
+      "name": "Google DeepMind Blog",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://deepmind.google/blog/",
+      "search_hint": "site:deepmind.google/blog after:{start_date} before:{end_date}",
+      "topics": ["research", "models", "science"],
+      "enabled": true
+    },
+    {
+      "id": "microsoft-ai-source",
+      "name": "Microsoft Source AI",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://news.microsoft.com/source/topics/ai/",
+      "search_hint": "site:news.microsoft.com/source/topics/ai after:{start_date} before:{end_date}",
+      "topics": ["product", "enterprise", "research"],
+      "enabled": true
+    },
+    {
+      "id": "meta-ai-blog",
+      "name": "Meta AI Blog",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://ai.meta.com/blog/",
+      "search_hint": "site:ai.meta.com/blog after:{start_date} before:{end_date}",
+      "topics": ["models", "open-source", "research"],
+      "enabled": true
+    },
+    {
+      "id": "qwen-blog",
+      "name": "Qwen Blog",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://qwenlm.github.io/blog/",
+      "search_hint": "site:qwenlm.github.io/blog after:{start_date} before:{end_date}",
+      "topics": ["models", "open-source", "research"],
+      "enabled": true
+    },
+    {
+      "id": "deepseek-news",
+      "name": "DeepSeek News",
+      "tier": 1,
+      "kind": "official",
+      "method": "search",
+      "url": "https://api-docs.deepseek.com/news/",
+      "search_hint": "site:api-docs.deepseek.com/news after:{start_date} before:{end_date}",
+      "topics": ["models", "api", "product"],
+      "enabled": true
+    },
+    {
+      "id": "eu-ai-policy",
+      "name": "European Commission AI policy",
+      "tier": 1,
+      "kind": "regulator",
+      "method": "search",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "search_hint": "site:digital-strategy.ec.europa.eu AI after:{start_date} before:{end_date}",
+      "topics": ["policy", "regulation", "safety"],
+      "enabled": true
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv",
+      "tier": 1,
+      "kind": "paper",
+      "method": "search",
+      "url": "https://arxiv.org/",
+      "search_hint": "site:arxiv.org (cs.AI OR cs.CL OR cs.LG) after:{start_date} before:{end_date}",
+      "topics": ["research"],
+      "enabled": true
+    },
+    {
+      "id": "reuters-ai",
+      "name": "Reuters AI",
+      "tier": 2,
+      "kind": "major-media",
+      "method": "search",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "search_hint": "site:reuters.com/technology/artificial-intelligence after:{start_date} before:{end_date}",
+      "access_note": "Use only when the article is publicly accessible or through authorized access; otherwise use it as a discovery clue and verify elsewhere.",
+      "topics": ["industry", "policy", "company"],
+      "enabled": true
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch AI",
+      "tier": 2,
+      "kind": "industry-media",
+      "method": "search",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "search_hint": "site:techcrunch.com/category/artificial-intelligence after:{start_date} before:{end_date}",
+      "topics": ["product", "startup", "industry"],
+      "enabled": true
+    },
+    {
+      "id": "mit-tech-review-ai",
+      "name": "MIT Technology Review AI",
+      "tier": 2,
+      "kind": "industry-media",
+      "method": "search",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "search_hint": "site:technologyreview.com/topic/artificial-intelligence after:{start_date} before:{end_date}",
+      "topics": ["research", "policy", "industry"],
+      "enabled": true
+    },
+    {
+      "id": "openai-careers",
+      "name": "OpenAI Careers",
+      "tier": 1,
+      "kind": "company-careers",
+      "method": "search",
+      "url": "https://openai.com/careers/",
+      "search_hint": "site:openai.com/careers AI product engineer after:{start_date}",
+      "access_note": "The careers index may block automated clients; use public search results only to locate a specific official JD, then open that JD without bypassing access controls.",
+      "topics": ["career", "job-description", "interview"],
+      "enabled": true
+    },
+    {
+      "id": "anthropic-careers",
+      "name": "Anthropic Careers",
+      "tier": 1,
+      "kind": "company-careers",
+      "method": "search",
+      "url": "https://www.anthropic.com/careers",
+      "search_hint": "site:anthropic.com/careers AI product engineer after:{start_date}",
+      "topics": ["career", "job-description", "interview"],
+      "enabled": true
+    },
+    {
+      "id": "deepmind-careers",
+      "name": "Google DeepMind Careers",
+      "tier": 1,
+      "kind": "company-careers",
+      "method": "search",
+      "url": "https://deepmind.google/careers/",
+      "search_hint": "site:deepmind.google/careers AI product engineer after:{start_date}",
+      "topics": ["career", "job-description", "interview"],
+      "enabled": true
+    },
+    {
+      "id": "local-interview-notes",
+      "name": "User-provided interview notes",
+      "tier": 1,
+      "kind": "user-original",
+      "method": "local",
+      "url": "local://interview-notes",
+      "path_globs": ["**/*面试复盘*.md", "**/interview-notes/**/*.md"],
+      "topics": ["interview"],
+      "enabled": true
+    }
+  ]
+}

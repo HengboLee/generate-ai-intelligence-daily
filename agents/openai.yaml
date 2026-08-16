@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 情报与面试日报"
+  short_description: "核验、去重并生成可追溯来源的每日 AI 情报与模拟面试日报"
+  default_prompt: "使用 $generate-ai-intelligence-daily 生成今天的可核验 AI 情报与模拟面试 Markdown 日报。"
